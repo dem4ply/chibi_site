@@ -11,3 +11,4 @@ pipdeptree
 rope
 build
 ropevim
+vcrpy-unittest
