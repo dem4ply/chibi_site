@@ -30,10 +30,12 @@ class Chibi_css( CSS ):
 
 
 class Chibi_soup( BeautifulSoup ):
+    """
+    fecade para BeautifulSoup agrega que los results de css select
+    puedan tener la funcion to_html para verlo en un archivo
+    """
     def to_html( self ):
-        import pdb
-        pdb.set_trace()
-        pass
+        raise NotImplementedError
 
     @property
     def css(self) -> CSS:

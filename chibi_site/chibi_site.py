@@ -5,6 +5,9 @@ from .soup import Chibi_soup
 
 
 class Response( Response_base ):
+    """
+    Respuesta por default de Chibi_site, parsea los html como un soup
+    """
     is_raise_when_no_ok = True
 
     def parse_like_html( self ):
@@ -12,6 +15,10 @@ class Response( Response_base ):
 
 
 class Chibi_site( Chibi_url ):
+    """
+    expancion de chibi_url con el agregado que tiene propiedades para facilitar
+    el uso de los soups
+    """
     def __new__( cls, *args, **kw ):
         kw.setdefault( 'response_class', Response )
         obj = super().__new__( cls, *args, **kw )
