@@ -30,6 +30,6 @@ setup(
     name='chibi_site',
     packages=find_packages(include=['chibi_site', 'chibi_site.*']),
     url='https://github.com/dem4ply/chibi_site',
-    version='0.0.3',
+    version='0.1.0',
     zip_safe=False,
 )
