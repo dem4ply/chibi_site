@@ -60,3 +60,6 @@ class Test_soup_links( Test_danbooru ):
         self.assertTrue( self.site.links_as_string )
         for link in self.site.urls:
             self.assertIsInstance( link, Chibi_site )
+
+    def test_get_articles_should_work( self ):
+        self.assertTrue( self.site.articles )

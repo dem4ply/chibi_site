@@ -10,7 +10,7 @@ class Chibi_result_set( ResultSet ):
             html_file = Chibi_path_browser(
                 path.temp_file( extension='html' ) )
         elems_str = "\n".join( i.prettify() for i in self )
-        html = r"<html><body>" + elems_str + r"<\body><\html>"
+        html = r"<html><body>" + elems_str + r"</body></html>"
         soup = BeautifulSoup( html , "html.parser" )
         soup_str = soup.prettify()
         html_file.open().write( soup_str )
