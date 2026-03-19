@@ -9,6 +9,9 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [ 'chibi>=0.16.0', 'chibi_requests>=1.3.1', 'selenium>=4.29.0' ]
+extras_require = {
+    'browser': [ 'chibi_browser>=0.0.1' ]
+}
 
 setup(
     author="dem4ply",

@@ -13,6 +13,12 @@ class Chibi_path_browser( Chibi_path ):
         try:
             return self._browser
         except AttributeError:
+            try:
+                pass
+                # from chibi_browser import Chibi_browser
+            except ImportError:
+                raise ImportError( "The 'chibi_browser' package is required" )
+
             logger.info( "abriendo navegador firefox" )
             options = self._build_firefox_options()
             self._browser = webdriver.Firefox( options=options )
@@ -30,4 +36,3 @@ class Chibi_path_browser( Chibi_path ):
         if hasattr( self, '_browser' ):
             logger.info( "cerrando el navegador" )
             self.browser.quit()
-
