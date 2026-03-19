@@ -3,7 +3,6 @@
 import unittest
 from chibi_site import Chibi_site
 from vcr_unittest import VCRTestCase
-from bs4 import BeautifulSoup
 
 
 class Test_somoskudasai( VCRTestCase ):
