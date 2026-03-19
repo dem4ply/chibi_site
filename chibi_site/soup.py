@@ -1,6 +1,13 @@
+from chibi_atlas import Chibi_atlas
 from chibi.file.temp import Chibi_temp_path
-from chibi_site.path import Chibi_path_browser
 from bs4 import BeautifulSoup, ResultSet, CSS, Tag
+from chibi_site.path import Chibi_path_browser
+
+
+class Chibi_tag( Tag ):
+    def __init__( self, *args, **kw ):
+        super().__init__( *args, **kw )
+        self.attrs = Chibi_atlas( self.attrs )
 
 
 class Chibi_result_set( ResultSet ):
@@ -34,6 +41,11 @@ class Chibi_soup( BeautifulSoup ):
     fecade para BeautifulSoup agrega que los results de css select
     puedan tener la funcion to_html para verlo en un archivo
     """
+    def __init__( self, *args, element_classes=None, **kw ):
+        if element_classes is None:
+            element_classes = { Tag: Chibi_tag }
+        super().__init__( *args, element_classes=element_classes, **kw )
+
     def to_html( self ):
         raise NotImplementedError
 

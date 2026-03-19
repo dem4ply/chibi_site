@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import unittest
-from chibi_site import Chibi_site
-from vcr_unittest import VCRTestCase
 from bs4 import BeautifulSoup
-from chibi_site.chibi_file import Chibi_file_html
 from chibi.file.temp import Chibi_temp_path
+from vcr_unittest import VCRTestCase
+
+from chibi_site import Chibi_site
+from chibi_site.chibi_file import Chibi_file_html
 
 
 class Test_danbooru( VCRTestCase ):

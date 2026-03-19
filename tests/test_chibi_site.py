@@ -1,9 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import unittest
-from chibi_site import Chibi_site
-from vcr_unittest import VCRTestCase
 from bs4 import BeautifulSoup
+from vcr_unittest import VCRTestCase
+
+from chibi_atlas import Chibi_atlas
+from chibi_site import Chibi_site
+from chibi_site.soup import Chibi_result_set, Chibi_tag
 
 
 class Test_chibi_site( unittest.TestCase ):
@@ -63,3 +66,25 @@ class Test_soup_links( Test_danbooru ):
 
     def test_get_articles_should_work( self ):
         self.assertTrue( self.site.articles )
+
+
+class Test_soup_instances( Test_danbooru ):
+    def test_select_should_return_chibi_result_test( self ):
+        sections = self.site.soup.select( 'section' )
+        self.assertIsInstance( sections, Chibi_result_set )
+
+    def test_each_instance_of_section_should_be_a_chibi_tag( self ):
+        sections = self.site.soup.select( 'section' )
+        self.assertTrue( sections )
+        for section in sections:
+            self.assertIsInstance( section, Chibi_tag )
+
+    def test_select_one_should_return_chibi_tag( self ):
+        section = self.site.soup.select_one( 'section' )
+        self.assertIsInstance( section, Chibi_tag )
+
+
+class Test_soup_chibi_tag( Test_danbooru ):
+    def test_attrs_should_be_chibi_atlas( self ):
+        section = self.site.soup.select_one( 'section' )
+        self.assertIsInstance( section.attrs, Chibi_atlas )
